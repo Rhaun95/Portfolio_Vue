@@ -1,5 +1,17 @@
 <template>
   <div>
+    <html lang="de">
+      <head>
+        <title>Startpage</title>
+        <description>abstract Infomations about me: profile, works and contact</description>
+        <meta property="og:title" content="Soo_Portfolio"> 
+        <meta property="og:url" content="http://localhost:3000/">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="@/assets/OG_Startpage.png"> 
+        <meta property="og:description" content="Vue Project: own portfolio website">
+      </head>
+    </html>
+
     <Header/>
 
     <main class="flex flex-col ">
@@ -23,7 +35,7 @@
         <div class="flex flex-col justify-center items-center ">
 
             <div class="flex flex-row ml-7">
-               
+              
                 <div class="mt-14 ">
                     <img src="../assets/Me.jpg" alt="myfoto" class="w-64 rounded-md"/>
                 </div>
@@ -78,14 +90,12 @@
         Contact 
         <div class="flex justify-center items-center h-full">
           <div class="w-1/2">
-             <h1 class="text-6xl font-bold text-center">SOOHYEON KIM</h1>
+            <h1 class="text-6xl font-bold text-center">SOOHYEON KIM</h1>
             <p class="text-sm mt-4">I am a java developer based in Hamburg, Germany. I am passionate about creating beautiful and functional websites. I am currently looking for a new opportunity to work with a team of talented developers.</p>
           </div>
         </div>
       </section>
     </main>
-
-
 
   </div>
 </template>
@@ -93,6 +103,6 @@
 <script lang="ts">
   export default {
     name: 'index',
-    // 컴포넌트 로직 및 데이터 설정
+    
   }
 </script>
