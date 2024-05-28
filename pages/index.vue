@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="dark:bg-black dark:text-gray-50">
     <html lang="de">
       <head>
         <title>Startpage</title>
-        <description>abstract Infomations about me: profile, works and contact</description>
+        <!-- <description>abstract Infomations about me: profile, works and contact</description> -->
         <meta property="og:title" content="Soo_Portfolio"> 
         <meta property="og:url" content="http://localhost:3000/">
         <meta property="og:type" content="website">
@@ -103,6 +103,15 @@
 <script lang="ts">
   export default {
     name: 'index',
-    
   }
 </script>
+
+<style scoped>
+  body {
+    @apply bg-white text-black;
+  }
+
+  body.dark {
+    @apply bg-black text-white;
+  }
+</style>

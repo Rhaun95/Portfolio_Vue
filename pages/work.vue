@@ -1,29 +1,42 @@
 <template>
-    <div>
+    <div class="dark:bg-black dark:text-gray-50">
+      <html lang="de">
+        <head>
+          <title>Works</title>
+          <!-- <description>list of projects</description> -->
+          <meta property="og:title" content="Projectlist"> 
+          <meta property="og:url" content="http://localhost:3000/work">
+          <meta property="og:type" content="website">
+          <meta property="og:image" content="@/assets/OG_Startpage.png"> 
+          <meta property="og:description" content="Vue Project: own portfolio website">
+        </head>
+      </html>
+      
       <Header/>
-      <SectionTitle title="Works"/>
-    <div class="flex justify-center ">
-      <div class=" grid grid-cols-2 gap-6 mb-10 ">
-        <div>
-          <div class="w-[550px] h-[400px] bg-rose-300 ">1</div>
-          <div class="text-lg font-bold mt-3">Portfolio: WEB</div>
-        </div>
-        <div>
-          <div class="w-[550px] h-[400px] bg-rose-300 ">2</div>
-          <div class="text-lg font-bold mt-3">MBT: APP</div>
-        </div>
 
-        <div>
-          <div class="w-[550px] h-[400px] bg-rose-300 ">3</div>
-          <div class="text-lg font-bold mt-3">SANTORINI: GAME</div>
+      <SectionTitle title="Works"/>
+        <div class="flex justify-center ">
+          <div class=" grid grid-cols-2 gap-6 mb-10 ">
+            <div>
+              <div class="w-[550px] h-[400px] bg-rose-300 ">1</div>
+              <div class="text-lg font-bold mt-3">Portfolio: WEB</div>
+            </div>
+            <div>
+              <div class="w-[550px] h-[400px] bg-rose-300 ">2</div>
+              <div class="text-lg font-bold mt-3">MBT: APP</div>
+            </div>
+
+            <div>
+              <div class="w-[550px] h-[400px] bg-rose-300 ">3</div>
+              <div class="text-lg font-bold mt-3">SANTORINI: GAME</div>
+            </div>
+            <div>
+              <div class="w-[550px] h-[400px] bg-rose-300 ">4</div>
+              <div class="text-lg font-bold mt-3">MANNA: WEB</div>
+            </div>
+      
+          </div>
         </div>
-        <div>
-          <div class="w-[550px] h-[400px] bg-rose-300 ">4</div>
-          <div class="text-lg font-bold mt-3">MANNA: WEB</div>
-        </div>
-  
-      </div>
-    </div>
       
       <!-- <div class="flex justify-center relative overflow-x-auto sm:rounded-lg">
                         

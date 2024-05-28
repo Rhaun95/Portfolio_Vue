@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', "@nuxt/content", '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    "@nuxt/content", 
+    '@nuxtjs/sitemap',
+    '@nuxtjs/color-mode',
+  ],
   sitemap: {
     hostname: 'http://localhost:3000',
     routes: [
