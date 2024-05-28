@@ -15,6 +15,8 @@
         <SectionTitle title="CONTACT"/>
         <div class="flex justify-center ">
             
+
+            
         </div>
 
     </div>
