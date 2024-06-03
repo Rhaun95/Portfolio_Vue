@@ -7,6 +7,14 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
   ],
+  build: {
+    transpile: [
+      "three"
+    ],
+  },
+  router: {
+    middleware: ['content']
+  },
   sitemap: {
     hostname: 'http://localhost:3000',
     routes: [

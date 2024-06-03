@@ -106,12 +106,3 @@
   }
 </script>
 
-<style scoped>
-  body {
-    @apply bg-white text-black;
-  }
-
-  body.dark {
-    @apply bg-black text-white;
-  }
-</style>
