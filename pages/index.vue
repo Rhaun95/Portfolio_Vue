@@ -83,17 +83,18 @@
             </div>
 
         </div>
-
       </section>
 
       <section class="flex-grow h-screen">
-        Contact 
-        <div class="flex justify-center items-center h-full">
-          <div class="w-1/2">
-            <h1 class="text-6xl font-bold text-center">SOOHYEON KIM</h1>
-            <p class="text-sm mt-4">I am a java developer based in Hamburg, Germany. I am passionate about creating beautiful and functional websites. I am currently looking for a new opportunity to work with a team of talented developers.</p>
-          </div>
+        
+        <SectionTitle title="Contact"/> 
+        <div class="flex flex-col justify-center items-center ">
+          <input type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="E-Mail"/>
+          <input type="text" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
+          <textarea class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Nachricht" />
+
         </div>
+
       </section>
     </main>
 
@@ -105,4 +106,12 @@
     name: 'index',
   }
 </script>
+
+<style scoped>
+input[type="text"]::placeholder {
+
+text-align: start;
+
+}
+</style>
 
