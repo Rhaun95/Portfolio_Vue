@@ -89,10 +89,17 @@
         
         <SectionTitle title="Contact"/> 
         <div class="flex flex-col justify-center items-center ">
-          <input type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="E-Mail"/>
-          <input type="text" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
-          <textarea class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Nachricht" />
+          
+          <Form>
 
+          
+            <input v-model="email" v-bind="emailAttrs" type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="E-Mail"/>
+            <div>{{ errors.email }}</div>
+            <input type="text" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
+            <textarea v-model="message" v-bind="messageAttrs" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md resize-none" placeholder="Nachricht" />
+            <div>{{ errors.message }}</div>
+
+          </Form>
         </div>
 
       </section>
@@ -101,17 +108,24 @@
   </div>
 </template>
 
-<script lang="ts">
-  export default {
-    name: 'index',
-  }
+<script setup lang="ts">
+  import {useForm} from 'vee-validate';
+  import {toTypedSchema} from "@vee-validate/zod";
+  import {z} from 'zod';
+
+  const { errors, defineField} =
+    useForm({
+      validationSchema: toTypedSchema(
+        z.object({
+          email: z.string().email(),
+          message: z.string().min(30),
+      }))
+    });
+
+    const [email, emailAttrs] = defineField('email');
+    const [message, messageAttrs] = defineField('message');
+
 </script>
 
-<style scoped>
-input[type="text"]::placeholder {
 
-text-align: start;
-
-}
-</style>
 
