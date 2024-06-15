@@ -19,6 +19,7 @@
     "@nuxtjs/sitemap": "^5.2.0",
     "@vee-validate/zod": "^4.13.1",
     "@vueuse/core": "^10.10.0",
+    "axios": "^1.7.2",
     "nuxt": "^3.11.2",
     "three": "^0.165.0",
     "vee-validate": "^4.13.1",

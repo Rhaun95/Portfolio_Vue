@@ -88,17 +88,16 @@
       <section class="flex-grow h-screen">
         
         <SectionTitle title="Contact"/> 
-        <div class="flex flex-col justify-center items-center ">
+        <div class=" ">
           
-          <Form>
+          <Form @submit="submit" class="flex flex-col justify-center items-center">
 
-          
-            <input v-model="email" v-bind="emailAttrs" type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="E-Mail"/>
+            <input v-model="email" v-bind="emailAttrs" type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md text-black" placeholder="E-Mail"/>
             <div>{{ errors.email }}</div>
-            <input type="text" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
-            <textarea v-model="message" v-bind="messageAttrs" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md resize-none" placeholder="Nachricht" />
+            <input v-model="betreff" type="text" class="text-black w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
+            <textarea v-model="message" v-bind="messageAttrs" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md text-black resize-none" placeholder="Nachricht" />
             <div>{{ errors.message }}</div>
-
+            <button type="submit" class="w-20 h-12 mt-4 rounded-lg bg-sky-400 text-red-50 text-lg">Send</button>
           </Form>
         </div>
 
@@ -109,21 +108,49 @@
 </template>
 
 <script setup lang="ts">
-  import {useForm} from 'vee-validate';
+  import {Form, useForm, validate} from 'vee-validate';
   import {toTypedSchema} from "@vee-validate/zod";
   import {z} from 'zod';
 
-  const { errors, defineField} =
+
+  const { errors, defineField, handleSubmit } = 
     useForm({
       validationSchema: toTypedSchema(
         z.object({
           email: z.string().email(),
           message: z.string().min(30),
+          betreff: z.string().optional(),
       }))
     });
 
+
     const [email, emailAttrs] = defineField('email');
     const [message, messageAttrs] = defineField('message');
+    const [betreff] = defineField('betreff');
+    
+      const submit = handleSubmit(async () => {
+        try {
+
+            await validate();
+          
+            const response = await $fetch('api/contact', {
+              method: 'post',
+              body: {
+                email: email.value,
+                message: message.value,
+                betreff: betreff.value,
+              }
+            });
+
+          console.log('Successfull!! Server antwortete mit ' + response);
+          alert('Successfull!! Server antwortete mit ' + response);
+          
+        } catch (error) {
+          alert('Transfer failed: ' + error.message); // Übertragung fehlgeschlagen
+        }
+      });
+
+
 
 </script>
 
