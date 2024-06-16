@@ -90,14 +90,23 @@
         <SectionTitle title="Contact"/> 
         <div class=" ">
           
-          <Form @submit="onSubmit" class="flex flex-col justify-center items-center">
+          <Form @submit="onSubmit" class="flex flex-col justify-center items-center w-full">
+      
+            <label id="emailLabel" for="email" class="flex flex-col justify-center items-center w-full"> <span class="hidden">Email</span>
+              <input v-model="email" v-bind="emailAttrs" id="email" type="email"  class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md text-black" placeholder="E-Mail"/>
+              <div>{{ errors.email }}</div>
+            </label>
 
-            <input v-model="email" v-bind="emailAttrs" type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md text-black" placeholder="E-Mail"/>
-            <div>{{ errors.email }}</div>
-            <input v-model="betreff" type="text" class="text-black w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="Betreff (optional)"/>
-            <textarea v-model="message" v-bind="messageAttrs" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md text-black resize-none" placeholder="Nachricht" />
-            <div>{{ errors.message }}</div>
-            <button type="submit" class="w-20 h-12 mt-4 rounded-lg bg-sky-400 text-red-50 text-lg">Send</button>
+            <label id="subjectLabel" for="subject" class="flex flex-col justify-center items-center w-full"> <span class="hidden">subject</span>
+              <input v-model="subject" id="subject" type="text" class="text-black w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="subject (optional)"/>
+            </label>
+
+            <label id="messageLabel" for="message" class="flex flex-col justify-center items-center w-full"> <span class="hidden">message</span>
+              <textarea v-model="message" v-bind="messageAttrs" id="message" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md text-black resize-none" placeholder="Message" />
+              <div>{{ errors.message }}</div>
+            </label>
+
+            <button type="submit" class="w-20 h-12 mt-4 rounded-lg bg-sky-900 text-red-50 text-lg">Send</button>
           </Form>
         </div>
 
@@ -108,7 +117,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref ,reactive} from 'vue';
   import {Form, useForm, validate} from 'vee-validate';
   import {toTypedSchema} from "@vee-validate/zod";
   import {z} from 'zod';
@@ -124,18 +132,18 @@
         z.object({
           email: z.string().email(),
           message: z.string().min(30),
-          betreff: z.string().optional(),
+          subject: z.string().optional(),
       }))
     });
 
 
     const [email, emailAttrs] = defineField('email');
     const [message, messageAttrs] = defineField('message');
-    const [betreff] = defineField('betreff');
+    const [subject] = defineField('subject');
 
       const contact = {
         email: email.value,
-        subject: betreff.value || null,
+        subject: subject.value || null,
         message: message.value,
       }; 
     
@@ -147,7 +155,7 @@
               method: 'POST',
               body: JSON.stringify({
                   email: email.value,
-                  subject: betreff.value || null,
+                  subject: subject.value || null,
                   message: message.value,
                 })
             });
