@@ -90,7 +90,7 @@
         <SectionTitle title="Contact"/> 
         <div class=" ">
           
-          <Form @submit="submit" class="flex flex-col justify-center items-center">
+          <Form @submit="onSubmit" class="flex flex-col justify-center items-center">
 
             <input v-model="email" v-bind="emailAttrs" type="email" class="w-1/3 p-2 mt-5 border border-gray-700 rounded-md text-black" placeholder="E-Mail"/>
             <div>{{ errors.email }}</div>
@@ -108,10 +108,15 @@
 </template>
 
 <script setup lang="ts">
+  import { ref ,reactive} from 'vue';
   import {Form, useForm, validate} from 'vee-validate';
   import {toTypedSchema} from "@vee-validate/zod";
   import {z} from 'zod';
+  import { useRouter } from 'vue-router';
 
+
+
+  const router = useRouter();
 
   const { errors, defineField, handleSubmit } = 
     useForm({
@@ -127,26 +132,31 @@
     const [email, emailAttrs] = defineField('email');
     const [message, messageAttrs] = defineField('message');
     const [betreff] = defineField('betreff');
+
+      const contact = {
+        email: email.value,
+        subject: betreff.value || null,
+        message: message.value,
+      }; 
     
-      const submit = handleSubmit(async () => {
+      const onSubmit = handleSubmit(async () => {
         try {
 
             await validate();
-          
-            const response = await $fetch('api/contact', {
-              method: 'post',
-              body: {
-                email: email.value,
-                message: message.value,
-                betreff: betreff.value,
-              }
+            const {data, error} = await useFetch('api/contact', {
+              method: 'POST',
+              body: JSON.stringify({
+                  email: email.value,
+                  subject: betreff.value || null,
+                  message: message.value,
+                })
             });
 
-          console.log('Successfull!! Server antwortete mit ' + response);
-          alert('Successfull!! Server antwortete mit ' + response);
+            
+          alert('Successfull!! Server antwortete mit ' + JSON.stringify(data.value));
           
         } catch (error) {
-          alert('Transfer failed: ' + error.message); // Übertragung fehlgeschlagen
+          alert('Transfer failed: ' + error); // Übertragung fehlgeschlagen
         }
       });
 
