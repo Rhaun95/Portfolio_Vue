@@ -14,15 +14,21 @@
       
       <Header/>
       <SectionTitle title="Work"/>
+
+      <div id="workListContainer" class="flex flex-col justify-center items-center"> 
+        <ContentList path="/work" v-slot="{ list }" >
+          <div class="grid grid-cols-2 gap-5">
+            <div v-for="(work, index) in list" :key="work._path" class="m-5 ">
+              <h2>{{ work.title }}</h2>
+              <p>{{ work.description }}</p>
+              <img :src="work.img" :alt="work.title" class="w-[650px] h-[450px]  border border-gray-300 rounded-sm">
+              <nuxt-link :to="'/work/' + work.href">Link</nuxt-link>
+            </div>
+          </div>
+        </ContentList>
+    
+       </div>
       
-      <ContentList path="/work" v-slot="{ list }">
-        <div v-for="work in list" :key="work._path">
-          <h2>{{ work.title }}</h2>
-          <p>{{ work.description }}</p>
-          <img :src="work.img" :alt="work.title" class="w-[550px] h-[400px]">
-          <nuxt-link :to="'/work/' + work.href">Link</nuxt-link>
-        </div>
-      </ContentList>
   
     
 

@@ -17,6 +17,7 @@
     <main class="flex flex-col ">
       <section class="flex justify-evenly items-center flex-col flex-grow h-screen">
         <!-- Introduction -->
+         
         <div class="text-center mt-16">
           <h1 class="text-6xl font-semibold">SOOHYEON KIM</h1>
           <p class="text-lg mt-4">I am a java developer</p>

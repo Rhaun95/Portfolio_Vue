@@ -2,10 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    '@nuxt/ui',
     '@nuxtjs/tailwindcss', 
     "@nuxt/content", 
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
+   
   ],
   build: {
     transpile: [
