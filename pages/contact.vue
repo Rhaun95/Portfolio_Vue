@@ -13,11 +13,10 @@
         </html>
         <Header/>
         <SectionTitle title="CONTACT"/>
-        <div class="flex justify-center ">
-            
-
-
-            
+        <div class="flex flex-col justify-center items-center">
+            <div>
+                
+            </div>
 
         </div>
 

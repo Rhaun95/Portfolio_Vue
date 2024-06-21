@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="mt-6 flex  flex-grow h-52 justify-center items-center">
 
         <hr class="w-full"/>
         footer

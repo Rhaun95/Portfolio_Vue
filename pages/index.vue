@@ -11,10 +11,13 @@
         <meta property="og:description" content="Vue Project: own portfolio website">
       </head>
     </html>
-
-    <Header/>
   
-   
+    <Header/>
+    <div>
+      <!-- <UButton v-if="loggedIn" @click="handleSignOut" icon="i-dashicons-admin-generic" color="teal" variant="soft">Logout</UButton> -->
+      <UButton icon="i-dashicons-admin-generic"  @click="handleSignIn"  color="teal" variant="soft">Admin</UButton>
+    </div> 
+
     <!-- <Login  class="flex flex-col "/> -->
 
     <main class="flex flex-col ">
@@ -126,8 +129,6 @@
 
     </main>
 
-    <Footer class="mt-6 flex  flex-grow h-52 justify-center items-center"/>
-
 
   </div>
 </template>
@@ -140,9 +141,6 @@
 
 
   const router = useRouter();
-
-
-
 
   const { errors, defineField, handleSubmit } = 
     useForm({

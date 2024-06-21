@@ -18,7 +18,8 @@
       <div id="workListContainer" class="flex flex-col justify-center items-center"> 
         <ContentList path="/work" v-slot="{ list }" >
           <div class="grid grid-cols-2 gap-5">
-            <div v-for="(work, index) in list" :key="work._path" class="m-5 ">
+            <div v-for="(work, index) in list" 
+              :key="work._path" class="m-5 ">
               <h2>{{ work.title }}</h2>
               <p>{{ work.description }}</p>
               <img :src="work.img" :alt="work.title" class="w-[650px] h-[450px]  border border-gray-300 rounded-sm">
@@ -29,42 +30,6 @@
     
        </div>
       
-  
-    
-
-       <!-- <div class="flex justify-center ">
-          <div class="grid grid-cols-2 gap-6 mb-10 ">
-            <div v-for="project in projects" :key="project.title">
-              <nuxt-link :to="project.href">
-                <img :src={{project.img}} :alt="project.title" class="w-[550px] h-[400px] bg-rose-300">
-                <div class="text-lg font-bold mt-3">{{ project.title }}</div>
-              </nuxt-link>
-            </div>
-          </div>
-   
-        </div>   -->
-
-      
-          <!-- <div class=" grid grid-cols-2 gap-6 mb-10 ">
-            <div>
-              <div class="w-[550px] h-[400px] bg-rose-300 ">1</div>
-              <div class="text-lg font-bold mt-3">Portfolio: WEB</div>
-            </div>
-            <div>
-              <div class="w-[550px] h-[400px] bg-rose-300 ">2</div>
-              <div class="text-lg font-bold mt-3">MBT: APP</div>
-            </div>
-
-            <div>
-              <div class="w-[550px] h-[400px] bg-rose-300 ">3</div>
-              <div class="text-lg font-bold mt-3">SANTORINI: GAME</div>
-            </div>
-            <div>
-              <div class="w-[550px] h-[400px] bg-rose-300 ">4</div>
-              <div class="text-lg font-bold mt-3">MANNA: WEB</div>
-            </div>
-      
-          </div> -->
 
     </div>
 </template>

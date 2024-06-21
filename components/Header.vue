@@ -49,13 +49,14 @@
             colorMode.value = (colorMode.value === 'light' ? 'dark' : 'light')
             localStorage.setItem('color-mode', colorMode.value);
     }
-    import * as THREE from 'three';
+import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
     import { onMounted, ref } from 'vue';
 
     const threeContainer = ref<HTMLDivElement | null>(null);
 
     onMounted(() => {
+
     if (!threeContainer.value) return;
 
     // Scene, Camera, Renderer 설정
@@ -101,7 +102,7 @@
 
     
     });
-    
+
     
 </script>
 <style scoped >

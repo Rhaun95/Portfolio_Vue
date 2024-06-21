@@ -2,15 +2,15 @@
     <div class="flex flex-col justify-center items-center">
 
       <div v-if="pinnedRepos.length" class=" flex flex-row overflow-hidden">
-        <div @click="moveToRepo(repo.name)" v-for="repo in pinnedRepos" :key="repo.id" class="flex flex-col justify-center text-center w-64 h-52 p-5 border border-2 border-gray-400 rounded-lg m-3
-        cursor-pointer transform transition-transform duration-200 ease-in-out hover:scale-105 hover:border-lime-100">
-         
-            <p>{{ repo.description }}</p>
-            <hr class="w-full mb-2"/>
-            <div class="text-lg">{{ repo.name }}</div>
-          <!-- <p><strong>Stars:</strong> {{ repo.stargazers.totalCount }}</p>
-          <p><strong>Forks:</strong> {{ repo.forkCount }}</p> -->
-        </div>
+        <HoverScaleCard 
+            v-for="repo in pinnedRepos" 
+            :key="repo.id" 
+            :name="repo.name"
+            :description="repo.description"
+            @click="moveToRepo(repo.name)" 
+
+            class="w-64 h-52 p-5">
+        </HoverScaleCard>
     </div>
       <div v-else>
         <p>Loading...</p>
@@ -19,7 +19,7 @@
   </template>
   
   <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  
   import { useRuntimeConfig } from '#app'
   import { GraphQLClient, gql } from 'graphql-request'
   
