@@ -13,6 +13,9 @@
     </html>
 
     <Header/>
+  
+   
+    <!-- <Login  class="flex flex-col "/> -->
 
     <main class="flex flex-col ">
       <section class="flex justify-evenly items-center flex-col flex-grow h-screen">
@@ -23,14 +26,14 @@
           <p class="text-lg mt-4">I am a java developer</p>
         </div>
         <div class="flex justify-center items-center flex-col ">
-          <div class="pb-3 text-sm font-bold text-gray-600">SCROLL DOWN</div>
-          <div class="flex justify-center items-center bg-black p-5 rounded-full w-7 h-7 text-white ">
+          <div class="pb-3 text-sm font-bold text-gray-600 dark:text-gray-100">SCROLL DOWN</div>
+          <div class="flex justify-center items-center bg-black p-5 rounded-full w-7 h-7 text-white dark:bg-gray-100 dark:text-zinc-700">
             <font-awesome-icon :icon="['fas', 'arrow-down']" />
           </div>
       </div>
       </section>
 
-      <section class="flex-grow h-screen">
+      <section class="flex-grow h-fit mb-12">
         <SectionTitle title="About Me"/>
 
         <div class="flex flex-col justify-center items-center ">
@@ -86,7 +89,15 @@
         </div>
       </section>
 
-      <section class="flex-grow h-screen">
+      <section  class=" my-12 flex-grow h-fit">
+
+          <SectionTitle title="GitHub"/>
+          <GitHub class="  overflow-hidden"/>
+     
+      </section>
+
+
+      <section class="mt-6 flex-grow h-fit">
         
         <SectionTitle title="Contact"/> 
         <div class=" ">
@@ -112,7 +123,11 @@
         </div>
 
       </section>
+
     </main>
+
+    <Footer class="mt-6 flex  flex-grow h-52 justify-center items-center"/>
+
 
   </div>
 </template>
@@ -124,8 +139,10 @@
   import { useRouter } from 'vue-router';
 
 
-
   const router = useRouter();
+
+
+
 
   const { errors, defineField, handleSubmit } = 
     useForm({
@@ -142,11 +159,11 @@
     const [message, messageAttrs] = defineField('message');
     const [subject] = defineField('subject');
 
-      const contact = {
-        email: email.value,
-        subject: subject.value || null,
-        message: message.value,
-      }; 
+      // const contact = {
+      //   email: email.value,
+      //   subject: subject.value || null,
+      //   message: message.value,
+      // }; 
     
       const onSubmit = handleSubmit(async () => {
         try {

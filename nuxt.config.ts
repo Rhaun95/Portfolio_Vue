@@ -1,14 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      githubToken: process.env.GITHUB_TOKEN
+    }
+  },
   modules: [
+    '@sidebase/nuxt-auth',
     '@nuxt/ui',
-    '@nuxtjs/tailwindcss', 
-    "@nuxt/content", 
+    '@nuxtjs/tailwindcss',
+    "@nuxt/content",
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
-   
   ],
+  auth: {
+    provider: {
+              type: 'authjs'
+          }
+  },
   build: {
     transpile: [
       "three"

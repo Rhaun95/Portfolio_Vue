@@ -15,24 +15,35 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "@nuxt/content": "^2.12.1",
+    "@iconify/json": "^2.2.221",
+    "@nuxt/content": "^2.13.0",
     "@nuxt/ui": "^2.17.0",
     "@nuxtjs/sitemap": "^5.2.0",
+    "@opentelemetry/api": "1.8.0",
+    "@sidebase/nuxt-auth": "^0.7.2",
     "@vee-validate/zod": "^4.13.1",
-    "@vueuse/core": "^10.10.0",
+    "@vue/devtools-api": "^6.6.3",
+    "@vueuse/core": "^10.11.0",
+    "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
+    "graphql-request": "^7.0.1",
     "mysql2": "^3.10.1",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.12.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
     "three": "^0.165.0",
     "vee-validate": "^4.13.1",
     "vue-meta": "^2.4.0",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@types/node": "^20.12.12",
+    "@sidebase/nuxt-auth": "^0.7.2",
+    "@types/node": "^20.14.7",
     "@types/three": "^0.165.0",
-    "@types/vue": "^2.0.0",
     "vue": "^3.4.29"
+  },
+  "overrides": {
+    "nitropack": "2.7.0"
   }
 }

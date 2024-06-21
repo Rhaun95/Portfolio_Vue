@@ -18,7 +18,7 @@
                     </li>      
                 </ul>
                 <div class="w-64 flex justify-center">
-                    <button aria-label="Color Mode" class="text-sm mt-3 px-4 py-1 leading-none border rounded text-white border-white hover:border-transparent bg-teal-800 dark:bg-white"
+                    <button aria-label="Color Mode" class="text-sm mt-3 px-4 py-1 leading-none border rounded text-white border-white hover:border-transparent bg-teal-800"
                             @click="changeColor">
                         <ColorScheme placeholder="...">
                             <font-awesome-icon :icon="['fas', 'moon']" v-if="colorMode.value === 'dark'" class="text-xl  text-black"/>
@@ -99,34 +99,7 @@
     });
     camera.position.z = 4;
 
-    // 윈도우 리사이즈 대응
-    // window.addEventListener('resize', () => {
-    //     camera.aspect = threeContainer.value!.clientWidth / threeContainer.value!.clientHeight;
-    //     camera.updateProjectionMatrix();
-    //     renderer.setSize(threeContainer.value!.clientWidth, threeContainer.value!.clientHeight);
-    // });
-    // renderer.render(scene, camera);
-    // });
-
-
-    // 간단한 큐브 추가
-    // const geometry = new THREE.BoxGeometry();
-    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    // const cube = new THREE.Mesh(geometry, material);
-    // scene.add(cube);
-
-    // camera.position.z = 5;
-
-    // // 애니메이션 루프
-    // const animate = () => {
-    //     requestAnimationFrame(animate);
-
-    //     cube.rotation.x += 0.01;
-    //     cube.rotation.y += 0.01;
-
-    //     renderer.render(scene, camera);
-    // };
-    // animate();
+    
     });
     
     
