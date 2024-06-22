@@ -7,17 +7,18 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@sidebase/nuxt-auth',
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
+    '@sidebase/nuxt-auth',
     "@nuxt/content",
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
+    "@nuxt/image"
   ],
   auth: {
     provider: {
-              type: 'authjs'
-          }
+        type: 'authjs'
+    }
   },
   build: {
     transpile: [
@@ -39,6 +40,10 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'light-plus'
     }
+  },
+  ui:{
+    global: true,
+    icons: ['simple-icons', 'dashicons']
   },
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css'

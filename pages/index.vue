@@ -13,10 +13,7 @@
     </html>
   
     <Header/>
-    <div>
-      <!-- <UButton v-if="loggedIn" @click="handleSignOut" icon="i-dashicons-admin-generic" color="teal" variant="soft">Logout</UButton> -->
-      <UButton icon="i-dashicons-admin-generic"  @click="handleSignIn"  color="teal" variant="soft">Admin</UButton>
-    </div> 
+
 
     <!-- <Login  class="flex flex-col "/> -->
 
@@ -140,6 +137,7 @@
   import { useRouter } from 'vue-router';
 
 
+
   const router = useRouter();
 
   const { errors, defineField, handleSubmit } = 
@@ -156,12 +154,6 @@
     const [email, emailAttrs] = defineField('email');
     const [message, messageAttrs] = defineField('message');
     const [subject] = defineField('subject');
-
-      // const contact = {
-      //   email: email.value,
-      //   subject: subject.value || null,
-      //   message: message.value,
-      // }; 
     
       const onSubmit = handleSubmit(async () => {
         try {

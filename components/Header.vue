@@ -18,13 +18,18 @@
                     </li>      
                 </ul>
                 <div class="w-64 flex justify-center">
-                    <button aria-label="Color Mode" class="text-sm mt-3 px-4 py-1 leading-none border rounded text-white border-white hover:border-transparent bg-teal-800"
+                    <button aria-label="Color Mode" class="text-sm mt-3 px-3 leading-none border rounded text-white border-white hover:border-transparent bg-teal-800"
                             @click="changeColor">
                         <ColorScheme placeholder="...">
                             <font-awesome-icon :icon="['fas', 'moon']" v-if="colorMode.value === 'dark'" class="text-xl  text-black"/>
                             <font-awesome-icon :icon="['fas', 'bolt-lightning']" v-else  class="text-xl"/>
                         </ColorScheme>
                     </button>
+
+                    <div class="ml-3">
+                        <UButton  class="mt-3  p-3 " v-if="loggedIn" @click="handleSignOut" icon="i-dashicons-admin-users" color="amber" size="lg" variant="solid"></UButton>
+                        <UButton  class="mt-3 p-3 " v-else icon="i-dashicons-admin-generic"  @click="handleSignIn"  color="teal" variant="soft">Admin</UButton>
+                    </div> 
                 </div>
             </div>
 
@@ -36,6 +41,18 @@
 </template>
 
 <script setup lang="ts">
+    const { status, data,  signIn, signOut   } = useAuth();
+
+    async function handleSignIn() {
+    await signIn();
+    }
+
+    async function handleSignOut() {
+    await signOut();
+    }
+
+    const loggedIn = computed(() => status.value === 'authenticated');
+
     const colorMode = useColorMode();
 
     if (typeof localStorage !== 'undefined') {
