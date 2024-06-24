@@ -110,11 +110,14 @@
             </label>
 
             <label id="subjectLabel" for="subject" class="flex flex-col justify-center items-center w-full"> <span class="hidden">subject</span>
-              <input v-model="subject" id="subject" type="text" class="text-black w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="subject (optional)"/>
+              <input v-model="subject" id="subject" type="text" class="text-black dark:text-gray-100 w-1/3 p-2 mt-5 border border-gray-700 rounded-md" placeholder="subject (optional)"/>
             </label>
 
             <label id="messageLabel" for="message" class="flex flex-col justify-center items-center w-full"> <span class="hidden">message</span>
-              <textarea v-model="message" v-bind="messageAttrs" id="message" class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md text-black resize-none" placeholder="Message" />
+              <textarea v-model="message" v-bind="messageAttrs" id="message" 
+                        class="w-1/3 h-80 p-2 mt-5 border border-gray-700 rounded-md
+                         text-black dark:text-gray-100 resize-none" 
+                        placeholder="Message" />
               <div>{{ errors.message }}</div>
             </label>
 
@@ -136,7 +139,20 @@
   import {z} from 'zod';
   import { useRouter } from 'vue-router';
 
+  const mail = useMail();
 
+  // const sendMail = async () => {
+  //   try {
+  //     await mail.send({
+  //         from: 'TESTER@gmail.com',
+  //         subject: 'test',
+  //         text: 'This is an incredible test message',
+  //       })
+  //       alert('Email sent successfully')
+  //   } catch (error) {
+  //     console.error('Error sending email', error)
+  //   }
+  // }
 
   const router = useRouter();
 
@@ -155,26 +171,38 @@
     const [message, messageAttrs] = defineField('message');
     const [subject] = defineField('subject');
     
-      const onSubmit = handleSubmit(async () => {
-        try {
 
-            await validate();
-            const {data, error} = await useFetch('api/contact', {
-              method: 'POST',
-              body: JSON.stringify({
-                  email: email.value,
-                  subject: subject.value || null,
-                  message: message.value,
-                })
-            });
+    /**
+     * TODO: add modal window instead alert
+     */
+    const onSubmit = handleSubmit(async () => {
+      try {
 
-            
-          alert('Successfull!! Server antwortete mit ' + JSON.stringify(data.value));
+          await validate();
+
+          const {data, error} = await useFetch('api/contact', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: email.value,
+                subject: subject.value || null,
+                message: message.value,
+              })
+          });
+
+          await mail.send({
+            fromPlainHandler: email.value,
+            from: email.value,
+            subject: subject.value || null,
+            text: `From ${email.value}\n\n${message.value}`,
+          })
+
           
-        } catch (error) {
-          alert('Transfer failed: ' + error); // Übertragung fehlgeschlagen
-        }
-      });
+        alert('Successfull!! Server antwortete mit ' + JSON.stringify(data.value));
+        
+      } catch (error) {
+        alert('Transfer failed: ' + error); // Übertragung fehlgeschlagen
+      }
+    });
 
 
 

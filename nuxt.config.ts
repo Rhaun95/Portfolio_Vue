@@ -10,10 +10,24 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
     '@sidebase/nuxt-auth',
+    ['nuxt-mail',
+    {
+      message: {
+        to: 'tngus5040@gmail.com',
+      },
+      smtp: {
+        host: 'smtp.gmail.com',
+        port: 587,
+        auth: { //발신자를 동적으로 설정하여 이 부분은 불필요
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS
+        }
+      },
+    }],
     "@nuxt/content",
     '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
-    "@nuxt/image"
+    "@nuxt/image",
   ],
   auth: {
     provider: {
