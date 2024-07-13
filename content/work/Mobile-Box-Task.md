@@ -1,8 +1,8 @@
 ---
-title: 'MBT'
+title: 'Mobile Box Task'
 img: '/img/image.jpg'
 description: 'This is a description of the MBT project.'
-href: 'mbt'
+href: 'mobile-box-task'
 ---
 
 #### date: 11.2023-02.2024

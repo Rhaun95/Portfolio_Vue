@@ -1,5 +1,5 @@
 <template>
-    <div class="dark:bg-black dark:text-gray-50">
+    <div class="dark:bg-black dark:text-gray-50 h-screen">
         <html lang="de">
             <head>
                 <title>Contactpage</title>

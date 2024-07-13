@@ -17,6 +17,7 @@
                     <NuxtLink to="/contact">CONTACT</NuxtLink>
                     </li>      
                 </ul>
+     
                 <div class="w-64 flex justify-center">
                     <button aria-label="Color Mode" class="text-sm mt-3 px-3 leading-none border rounded text-white border-white hover:border-transparent bg-teal-800"
                             @click="changeColor">

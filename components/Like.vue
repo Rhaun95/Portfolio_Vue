@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <UIcon name = "i-ph-thumbs-up-bold" dynamic  @click="like" class="w-8 h-8 cursor-pointer ml-5"/>
+    <div class="hover:scale-105">
+        <UIcon name = "i-ph-thumbs-up-bold" dynamic  @click="like" class="w-5 h-5 cursor-pointer ml-2"/>
         <span>{{ likes }}</span>
     </div>
 </template>

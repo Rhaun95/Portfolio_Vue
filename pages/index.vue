@@ -154,8 +154,6 @@
   //   }
   // }
 
-  const router = useRouter();
-
   const { errors, defineField, handleSubmit } = 
     useForm({
       validationSchema: toTypedSchema(
@@ -172,12 +170,10 @@
     const [subject] = defineField('subject');
     
 
-    /**
-     * TODO: add modal window instead alert
-     */
     const onSubmit = handleSubmit(async () => {
       try {
 
+  
           await validate();
 
           const {data, error} = await useFetch('api/contact', {
