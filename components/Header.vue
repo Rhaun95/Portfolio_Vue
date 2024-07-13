@@ -51,6 +51,7 @@
     async function handleSignOut() {
     await signOut();
     }
+    
 
     const loggedIn = computed(() => status.value === 'authenticated');
 
