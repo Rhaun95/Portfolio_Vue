@@ -11,6 +11,7 @@ export default NuxtAuthHandler({
            clientSecret: process.env.GITHUB_CLIENT_SECRET
         })
     ],
+    
     callbacks: {
         async session({ session, token, user }) {
           return session
