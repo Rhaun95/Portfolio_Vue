@@ -14,29 +14,21 @@
       
       <Header/>
       <SectionTitle title="Projects"/>
-
-      <div id="workListContainer" class="flex flex-col justify-center items-center"> 
-        <ContentList path="/work" v-slot="{ list } " >
-          <div class="grid grid-cols-2 gap-5">
-            <div v-for="(work, index) in list " 
-              :key="work._path" class="m-5 ">
-              <h2>{{ work.title }}</h2>
-              <div class="relative w-[650px] h-[450px]">
-                <img  :src="work.img" :alt="work.title" 
-                    class=" mt-3 w-full h-full hover:scale-105 transition-transform duration-300">
-                <div @click="moveToDetail(work.href)" 
-                    class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 
-                          hover:cursor-pointer hover:opacity-100 transition-opacity duration-300">
+      <div id="workListContainer" class="flex flex-col justify-center items-center mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24">
+        <ContentList path="/work" v-slot="{ list }"> <!-- ContentList에서 리스트를 받아옵니다 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div v-for="(work, index) in list" :key="work._path" class="p-4 cursor-pointer">
+              <h2 class="text-xl font-bold mb-2">{{ work.title }}</h2>
+              <div class="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+                <img :src="work.img" :alt="work.title" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div @click="moveToDetail(work.href)" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <p class="text-white text-center px-4">{{ work.description }}</p>
                 </div>
               </div>
             </div>
           </div>
         </ContentList>
-    
-       </div>
-      
-
+      </div>
     </div>
 </template>
 
