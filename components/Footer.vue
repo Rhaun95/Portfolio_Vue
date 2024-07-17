@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-6 flex  flex-grow h-52 justify-center items-center">
+    <div class="mt-6 flex  flex-grow h-24 justify-center items-center">
 
         <hr class="w-full"/>
-        footer
+        <a href="/impressum" class="mx-6">Impressum</a>
         
     </div>
 

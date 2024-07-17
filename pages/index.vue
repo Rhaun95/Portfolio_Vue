@@ -97,7 +97,7 @@
       </section>
 
 
-      <section class="mt-6 flex-grow h-fit">
+      <section class="mt-6 flex-grow h-fit pb-10">
         
         <SectionTitle title="Contact"/> 
         <div class=" ">
